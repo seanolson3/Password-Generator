@@ -1,0 +1,39 @@
+#Random Password Generator
+
+#import random module
+import random
+
+#password variable
+password = list()
+
+#function to create password
+def gen_pass (u, l, d, p):
+    #upper case loop
+    while u > 0:
+        uc = chr(random.randint(65,90))
+        password.append(uc)
+        u = u - 1
+    #lower case loop
+    while l > 0:
+        lc = chr(random.randint(97,122))
+        password.append(lc)
+        l = l - 1
+    #didget loop
+    while d > 0:
+        dec = chr(random.randint(48,57))
+        password.append(dec)
+        d = d - 1
+    #puncuation loop
+    while p > 0:
+        punc = chr(random.randint(33,47))
+        password.append(punc)
+        p = p - 1
+
+#call gen_pass function
+gen_pass(2, 2, 2, 2)
+
+#shuffle the password
+random.shuffle(password)
+
+#print
+print(password)
