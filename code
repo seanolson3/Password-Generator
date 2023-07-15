@@ -32,8 +32,8 @@ def gen_pass (u, l, d, p):
 #call gen_pass function
 gen_pass(2, 2, 2, 2)
 
-#shuffle the password
+#shuffle password
 random.shuffle(password)
 
-#print
+#print password
 print(password)
