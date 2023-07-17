@@ -1,34 +1,18 @@
 import random
+import string 
 
-password = list()
 
-#inputs
-upper = input("Upper Case Letters: ")
-lower = input("Lower Case Letters: ")
-digit = input("Digits: ")
-punct = input("Puncuations: ")
+#input length
+length = int(input("What length would you like your password: "))
 
+#Password generation function
 def gen_pass():
-     #upper case loop
-    while upper > 0:
-        uc = chr(random.randint(65,90))
-        password.append(uc)
-        u = u - 1
-    #lower case loop
-    while lower > 0:
-        lc = chr(random.randint(97,122))
-        password.append(lc)
-        l = l - 1
-    #didget loop
-    while digit > 0:
-        dec = chr(random.randint(48,57))
-        password.append(dec)
-        d = d - 1
-    #puncuation loop
-    while punct > 0:
-        punc = chr(random.randint(33,47))
-        password.append(punc)
-        p = p - 1
+    global password
+    #string package including all printable
+    letter_bank = string.printable
+    #appending a random char from letter_bank for i in length
+    password = ''.join(random.choice(letter_bank) for i in range(length))
+
 
 gen_pass()
 print(password)
