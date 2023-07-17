@@ -2,7 +2,7 @@
 Password Generator (random module/while loop/function)
 
 Future Additions:
-1. Encapsulate the code in a function: Wrap the code in a function to make it reusable and modular. This allows you to easily call the function whenever you need a password with specific requirements.
+**COMPLETE** 1. Encapsulate the code in a function: Wrap the code in a function to make it reusable and modular. This allows you to easily call the function whenever you need a password with specific requirements.
 
 2. Add parameter validation: Validate the input provided by the user. Check if the password length is within a reasonable range and prompt the user again if an invalid input is provided.
 
