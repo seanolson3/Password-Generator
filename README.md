@@ -5,7 +5,7 @@ Future Additions:
 
 **[COMPLETE]** 1. Encapsulate the code in a function: Wrap the code in a function to make it reusable and modular. This allows you to easily call the function whenever you need a password with specific requirements.
 
-2. Add parameter validation: Validate the input provided by the user. Check if the password length is within a reasonable range and prompt the user again if an invalid input is provided.
+2. Add parameter validation: Validate the input provided by the user. Check if the password length is within a reasonable range and prompt the user again if an invalid input is provided. (automation with python - validation)
 
 3. Implement a password strength check: Besides meeting the minimum requirements of having at least one special character and two digits, you can also add a password strength check. This can involve checking the length of the password, the presence of uppercase and lowercase letters, and the absence of common patterns or easily guessable information.
 
