@@ -2,6 +2,7 @@ import tkinter as tk
 import secrets
 import string
 
+pass_file = open("Passwords.txt", 'a')  # Open file in append mode ('a')
 
 def generate_password():
     characters = string.ascii_letters + string.digits
@@ -25,31 +26,44 @@ def generate_password():
     password = ':'.join(groups)
     return password
 
-
-#  Generate and print a password
-password = generate_password()
-print(f"Generated Password: {password}")
-
 #  Create the main window
 root = tk.Tk()
 root.title("Password Generator")
 
+root.geometry("400x200")
+root.configure(bg="#333333")
+
 # Create a label to display the generated password
-password_label = tk.Label(root, text="", font=("Arial", 12), bg="light grey", padx=100, pady=10)
+password_label = tk.Label(root, text="", font=("Arial", 12), bg="light grey", width=30, pady=10)
 password_label.pack(pady=10)  # Add padding above the label
 
+# Variable to store the currently displayed password
+current_password = ""
 
 # Function to update the password label
 def update_password_label():
-    generated_password = generate_password()  # Call your password generation function here
-    password_label.config(text=generated_password)
+    global current_password
+    current_password = generate_password()  # Generate a new password
+    password_label.config(text=current_password)  # Update the password label
 
+# Function to save the current password to file
+def save_password():
+    pass_file.write(current_password + "\n")  # Write current password to file with newline
+    pass_file.flush()  # Flush the buffer to ensure the write is immediate
 
 # Create a button to generate password
-generate_button = tk.Button(root, text="Generate Password", command=update_password_label, bg="#1E90FF", fg="white",
+generate_button = tk.Button(root, text="Generate Password", command=update_password_label, bg="#146eb4", fg="white",
                             font=("Arial", 14, "bold"))
-generate_button.pack(pady=20)  # Add padding below the button
+generate_button.pack(pady=10)  # Add padding below the button
+
+# Create a button to save password
+save_button = tk.Button(root, text="Save Password", command=save_password, bg="#146eb4", fg="white",
+                        font=("Arial", 14, "bold"))
+save_button.pack(pady=10)  # Add padding below the button
 
 # Run the Tkinter main loop
 root.mainloop()
+
+# Close the file after the program is done
+pass_file.close()
 
