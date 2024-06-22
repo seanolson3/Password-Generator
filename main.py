@@ -1,8 +1,11 @@
 import tkinter as tk
+import tkinter.messagebox as msgbox
 import secrets
 import string
 
-pass_file = open("Passwords.txt", 'a')  # Open file in append mode ('a')
+# Open the file in append mode ('a') with write permissions
+pass_file = open("Passwords.txt", 'a')
+
 
 def generate_password():
     characters = string.ascii_letters + string.digits
@@ -26,6 +29,7 @@ def generate_password():
     password = ':'.join(groups)
     return password
 
+
 #  Create the main window
 root = tk.Tk()
 root.title("Password Generator")
@@ -40,16 +44,23 @@ password_label.pack(pady=10)  # Add padding above the label
 # Variable to store the currently displayed password
 current_password = ""
 
+
 # Function to update the password label
 def update_password_label():
     global current_password
     current_password = generate_password()  # Generate a new password
     password_label.config(text=current_password)  # Update the password label
 
-# Function to save the current password to file
+
+# Function to save the current password to file and show message box
 def save_password():
+    global current_password
     pass_file.write(current_password + "\n")  # Write current password to file with newline
     pass_file.flush()  # Flush the buffer to ensure the write is immediate
+
+    # Show message box
+    msgbox.showinfo("Password Saved", "Password saved successfully!")
+
 
 # Create a button to generate password
 generate_button = tk.Button(root, text="Generate Password", command=update_password_label, bg="#146eb4", fg="white",
@@ -66,4 +77,3 @@ root.mainloop()
 
 # Close the file after the program is done
 pass_file.close()
-
